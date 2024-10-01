@@ -29,7 +29,7 @@ const options = {
         }
     };
 const data = ["62"]
-    bot.sendMessage(7089319504, 'TERHUBUNG 🚀\n\nBerhasil Terhubung Gan\nKlik Opsi Button Cek:\n', options);
+    bot.sendMessage(7089319504, 'TERHUBUNG 🚀\n\nBerhasil Terhubung Gan\nKlik Opsi Button Cek:\n', options)
         .then(() => {
             res.status(200).json({
       status: 200,
