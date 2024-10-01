@@ -13,12 +13,29 @@ app.get('/send', (req, res) => {
     const id = req.query.id;
 
     if (!id) {
-        return res.status(400).send('ID tidak disediakan.');
+        return res.status(400).json({ Error: 'ID tidak disediakan.'});
     }
 
-    bot.sendMessage(7089319504, `TERHUBUNG 🚀\n\nhttps://wa.me/${id}\n\nSilahkan di cek ngabb`)
+const options = {
+        reply_markup: {
+            inline_keyboard: [
+                [
+                    {
+                        text: 'Chat Bot',
+                        url: `https://wa.me/${id}`
+                    }
+                ]
+            ]
+        }
+    };
+const data = ["62"]
+    bot.sendMessage(7089319504, 'TERHUBUNG 🚀\n\nBerhasil Terhubung Gan\nKlik Opsi Button Cek:\n', options);
         .then(() => {
-            res.send('Database Terhubung.');
+            res.status(200).json({
+      status: 200,
+      creator: "Whiskeysockets/Baileys",
+      message: data.includes(id)
+    });
         })
         .catch((error) => {
             console.error(error);
